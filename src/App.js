@@ -1,58 +1,100 @@
 import React from 'react';
-import logo from './logo.svg';
-import { Counter } from './features/counter/Counter';
-import './App.css';
+import './style.css';
+import { Provider } from 'react-redux';
+import Counter from './inc';
+import store from './@Toolkit';
 
-function App() {
+// function reducer(currentState, action) {
+
+//   if (currentState === undefined) {
+//     return {
+//       number: 1,
+//     }
+//   }
+
+//   const newState = { ...currentState };
+
+//   if(action.type === 'PLUS') {
+//     newState.number++;
+//   }
+
+//   return newState;
+// }
+// const store = createStore(reducer);
+
+
+// const Left1 = (props) => {
+//   return (
+//     <div>
+//       <h1>Left1</h1>
+//       <Left2 />
+//     </div>
+//   )
+// }
+
+// const Left2 = (props) => {
+//   return (
+//     <div>
+//       <h1>Left2</h1>
+//       <Left3 />
+//     </div>
+//   )
+// }
+
+// const Left3 = (props) => {
+
+//   const number = useSelector( state => state.number );
+//   return (
+//     <div>
+//       <h1>Left3: {number} </h1>
+//     </div>
+//   )
+// }
+
+// const Right1 = (props) => {
+//   return (
+//     <div>
+//       <h1>Right1</h1>
+//       <Right2 />
+//     </div>
+//   )
+// }
+
+// const Right2 = (props) => {
+//   return (
+//     <div>
+//       <h1>Right2</h1>
+//       <Right3 />
+//     </div>
+//   )
+// }
+
+// const Right3 = (props) => {
+//   const dispatch = useDispatch();
+//   return (
+//     <div>
+//       <h1>Right3</h1>
+//       <button onClick={() => {
+//         dispatch({ type: 'PLUS' })
+//       }} >+</button>
+//     </div>
+//   )
+// }
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
+    <div>
+      <div id='container'>
+        <div style={{ flex: 1 }}>
+          <h1>Root</h1>
+        </div>
+      </div>
+      <hr />
+      <Provider store={store}>
         <Counter />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <span>
-          <span>Learn </span>
-          <a
-            className="App-link"
-            href="https://reactjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux
-          </a>
-          <span>, </span>
-          <a
-            className="App-link"
-            href="https://redux-toolkit.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Redux Toolkit
-          </a>
-          ,<span> and </span>
-          <a
-            className="App-link"
-            href="https://react-redux.js.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            React Redux
-          </a>
-        </span>
-      </header>
+      </Provider>
     </div>
-  );
+  )
 }
 
 export default App;
